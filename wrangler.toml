@@ -1,0 +1,21 @@
+name = "comp-rollup-api-production"
+main = "worker/src/api-worker.js"
+compatibility_date = "2024-01-15"
+
+[[r2_buckets]]
+binding = "COMP_ROLLUP_BUCKET"
+bucket_name = "comp-rollup-prod"
+
+[env.development]
+vars = { ENVIRONMENT = "development" }
+
+[[env.development.r2_buckets]]
+binding = "COMP_ROLLUP_BUCKET"
+bucket_name = "comp-rollup-dev"
+
+[env.production]
+vars = { ENVIRONMENT = "production" }
+
+[[env.production.r2_buckets]]
+binding = "COMP_ROLLUP_BUCKET"
+bucket_name = "comp-rollup-prod"
