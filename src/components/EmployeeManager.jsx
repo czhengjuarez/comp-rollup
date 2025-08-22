@@ -22,6 +22,10 @@ const EmployeeManager = ({ employees, onAddEmployee, onUpdateEmployee, onDeleteE
     setShowForm(false)
   }
 
+  const handleInlineUpdateEmployee = (updatedEmployee) => {
+    onUpdateEmployee(updatedEmployee.id, updatedEmployee)
+  }
+
   const handleCancelEdit = () => {
     setEditingEmployee(null)
     setShowForm(false)
@@ -54,6 +58,7 @@ const EmployeeManager = ({ employees, onAddEmployee, onUpdateEmployee, onDeleteE
         employees={employees}
         onEdit={handleEditEmployee}
         onDelete={onDeleteEmployee}
+        onUpdateEmployee={handleInlineUpdateEmployee}
         budgetSettings={budgetSettings}
       />
     </div>
